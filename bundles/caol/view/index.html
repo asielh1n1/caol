@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" ng-app="caol">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>CAOL</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/www/caol/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/www/caol/css/fontawesome.css" rel="stylesheet">
+    <link href="/www/caol/css/main.css" rel="stylesheet">
+    <base href="/">
+  </head>
+
+  <body class="text-center" ng-controller="Main">
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand text-capitalize" href="#/">Agence</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="#/"><i class="fa fa-home" ></i> Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/"><i class="fa fa-calendar-check" ></i> Projetos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/"><i class="fa fa-file" ></i> Administrativo</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#/" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" ></i> Comercial</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#/performance_comercial">Performance Comercial</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/"><i class="fa fa-money-bill" ></i> Financeiro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#/"><i class="fa fa-user" ></i> Usuário</a>
+            </li>
+          </ul>
+          <a class="nav-link" style="text-align: left;padding-left: 0px;" href="#/"><i class="fa fa-sign-out-alt" ></i> Salir</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container pt-4">
+        <alert></alert>
+      <div ng-view> </div>
+    </main>
+    <!--LOADING-->
+    <div style="display:none;position: fixed;width: 100%; height: 100%;color: white;opacity: 0.85;background-color: white;top: 0px; z-index: 999999;left: 0px;bottom: 0px;" class="text-xs-center" id="loading" >
+        <div style="position: absolute;top:35%;left:50%;margin-left:-50px">
+            <img style="position: relative;display: block;width: 100px;height: 100px;" src="www/caol/images/loading.gif">
+        </div>
+        <div style="position: relative;color: rgba(0,0,0,0.87);top: 50%;text-align: center;width: 100%;" id="loading-text"></div>
+    </div>
+    <script src="/www/caol/js/fusioncharts/fusioncharts.js"></script>
+    <script src="/www/caol/js/highcharts/highcharts.src.js"></script>
+    <script src="/www/caol/js/highcharts/modules/exporting.js"></script>
+
+
+    <script src="/www/caol/js/jquery.slim.min.js"></script>
+    <script src="/www/caol/js/popper.min.js"></script>
+    <script src="/www/caol/js/bootstrap.min.js"></script>
+    <script src="/www/caol/js/angular.min.js"></script>
+    <script src="/www/caol/js/angular-route.min.js"></script>
+
+    <script src="/www/caol/js/angular-fusioncharts.min.js"></script>
+    <script src="/www/caol/js/highcharts-ng/highcharts-ng.min.js"></script>
+
+
+    <script src="/www/caol/js/app.js"></script>
+    <!-- CONTROLLERS -->
+    <script src="/www/caol/controller/main.js"></script>
+    <script src="/www/caol/controller/performance_comercial.js"></script>
+    
+    
+  </body>
+</html>

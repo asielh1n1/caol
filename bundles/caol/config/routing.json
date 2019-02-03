@@ -1,0 +1,9 @@
+[
+	{
+		"url": "/",
+		"method": "get",
+		"controller": "main",
+		"fn": "index",
+		"roles": ""
+	}
+]

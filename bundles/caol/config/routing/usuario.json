@@ -1,0 +1,16 @@
+[
+  {
+    "url": "/load_consultants",
+    "method": "get",
+    "controller":"usuario",
+    "fn": "Usuario.loadConsultants",
+    "roles":""
+  },
+  {
+    "url": "/factura_desempenho",
+    "method": "post",
+    "controller":"usuario",
+    "fn": "Usuario.facturaDesempenho",
+    "roles":""
+  }
+]

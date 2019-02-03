@@ -1,0 +1,68 @@
+{
+	"webserver": {
+		"http": {
+			"port": 80,
+			"redirect_https": false
+		},
+		"https": {
+			"port": 443,
+			"key": "sslcert/server.key",
+			"crt": "sslcert/server.crt"
+		},
+		"session": {
+			"store": "",
+			"options": {
+				"host": "",
+				"port": ""
+			},
+			"secret": "session_zunkernel*2018",
+			"resave": false,
+			"saveUninitialized": true,
+			"cookie": {
+				"path": "/",
+				"httpOnly": true,
+				"secure": false,
+				"maxAge": null
+			}
+		},
+		"jsonwebtoken": {
+			"secret": "jsonwebtoken_zunkernel*2018",
+			"expires": 1440,
+			"algorithm": "HS256"
+		},
+		"csrf": {
+			"token_name": "zunframework_csrf_token",
+			"secret": "csrf_zunkernel*2018",
+			"expires": 1440
+		}
+	},
+	"bundles": [
+		{
+			"name": "caol",
+			"router": "/",
+			"main": "controller/main.js"
+		}
+	],
+	"database": {
+		"name": "caol",
+		"username": "root",
+		"password": "root",
+		"driver": "sequelize",
+		"options": {
+			"dialect": "mysql",
+			"host": "localhost",
+			"port": 3306,
+			"define": {
+				"timestamps": false
+			}
+		},
+		"logging": false
+	},
+	"email": {
+		"service": "Gmail",
+		"auth": {
+			"user": "username",
+			"pass": "password"
+		}
+	}
+}
