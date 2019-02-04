@@ -30,7 +30,7 @@ exports.Usuario={
         });
         var fechaIni = moment(req.body.fechaIni, "YYYY-MM-DD").endOf('month').format(); 
         var fechaFin = moment(req.body.fechaFin, "YYYY-MM-DD").endOf('month').format();
-        sql_query += ") and cf.data_emissao between '" + '2007-01-01' + "' and '" + req.body.fechaFin + "'";
+        sql_query += ") and cf.data_emissao between '" + req.body.fechaIni + "' and '" + req.body.fechaFin + "'";
         sql_query += " group by cu.co_usuario, cu.no_usuario, MONTH(cf.data_emissao), YEAR(cf.data_emissao)";
         sql_query += " order by cu.co_usuario, YEAR(cf.data_emissao), MONTH(cf.data_emissao)";
         console.log();
@@ -75,7 +75,7 @@ exports.Usuario={
     
             var brut_salario = salario_usuario ? salario_usuario.brut_salario : 0,
                 minus = data_user.month < 10 ? '-0' : '-';
-            var fecha=moment(data_user.year + minus + data_user.month + '-01').format();            
+            var fecha=moment(data_user.year + minus + data_user.month + '-01').utcOffset(8).format();            
             var data_fatura = {
                 month: data_user.month,
                 year: data_user.year,
