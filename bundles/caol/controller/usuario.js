@@ -75,7 +75,7 @@ exports.Usuario={
     
             var brut_salario = salario_usuario ? salario_usuario.brut_salario : 0,
                 minus = data_user.month < 10 ? '-0' : '-';
-            var fecha=moment(data_user.year + minus + data_user.month + '-01').utcOffset(8).format();            
+            var fecha=moment(data_user.year + minus + data_user.month + '-01 12:00').format();            
             var data_fatura = {
                 month: data_user.month,
                 year: data_user.year,
