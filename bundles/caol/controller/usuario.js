@@ -28,10 +28,9 @@ exports.Usuario={
             }
             sql_query += "cu.co_usuario='" + el.co_usuario + "' ";
         });
-        var fechaIni = moment(req.body.fechaIni, "YYYY-MM-DD"); 
-        return res.status(200).json(fechaIni)       
+        var fechaIni = moment(req.body.fechaIni, "YYYY-MM-DD").endOf('month').format(); 
         var fechaFin = moment(req.body.fechaFin, "YYYY-MM-DD").endOf('month').format();
-        sql_query += ") and cf.data_emissao between '" + fechaIni + "' and '" + fechaFin + "'";
+        sql_query += ") and cf.data_emissao between '" + req.body.fechaIni + "' and '" + req.body.fechaFin + "'";
         sql_query += " group by cu.co_usuario, cu.no_usuario, MONTH(cf.data_emissao), YEAR(cf.data_emissao)";
         sql_query += " order by cu.co_usuario, YEAR(cf.data_emissao), MONTH(cf.data_emissao)";
         console.log();
@@ -166,10 +165,10 @@ exports.Usuario={
             , {name: 'Novembro'}
             , {name: 'Dezembro'}];
         var periods = [];
-        var fechaIni = date_init;
+        var fechaIni = moment(date_init).endOf('month').format();
         var fechaFin = moment(date_end).endOf('month').format();
         var year = moment(date_init).year();
-        var sameYear = true;
+        var sameYear = true;        
         while (moment(fechaIni).isBefore(fechaFin)) {
             var monthIndex = moment(fechaIni).month();
             if (sameYear && year != moment(fechaIni).year())
