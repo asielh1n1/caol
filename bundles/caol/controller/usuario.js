@@ -29,7 +29,7 @@ exports.Usuario={
             sql_query += "cu.co_usuario='" + el.co_usuario + "' ";
         });
         var fechaIni = moment(req.body.fechaIni, "YYYY-MM-DD"); 
-        req.send(fechaIni)       
+        return res.status(200).json(fechaIni)       
         var fechaFin = moment(req.body.fechaFin, "YYYY-MM-DD").endOf('month').format();
         sql_query += ") and cf.data_emissao between '" + fechaIni + "' and '" + fechaFin + "'";
         sql_query += " group by cu.co_usuario, cu.no_usuario, MONTH(cf.data_emissao), YEAR(cf.data_emissao)";
