@@ -29,7 +29,7 @@ exports.Usuario={
             sql_query += "cu.co_usuario='" + el.co_usuario + "' ";
         });
         var fechaIni=new Date(req.body.fechaIni);
-        fechaIni.setHours(12);
+        fechaIni.setHours(23);
         var fechaIni = moment(fechaIni, "YYYY-MM-DD").startOf('month').format();
         
         var fechaFin = moment(req.body.fechaFin, "YYYY-MM-DD").endOf('month').format();
