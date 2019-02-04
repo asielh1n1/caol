@@ -28,8 +28,10 @@ exports.Usuario={
             }
             sql_query += "cu.co_usuario='" + el.co_usuario + "' ";
         });
-
-        var fechaIni = moment(req.body.fechaIni, "YYYY-MM-DD").startOf('month').format();
+        var fechaIni=new Date(req.body.fechaIni);
+        fechaIni.setHours(12);
+        var fechaIni = moment(fechaIni, "YYYY-MM-DD").startOf('month').format();
+        
         var fechaFin = moment(req.body.fechaFin, "YYYY-MM-DD").endOf('month').format();
         sql_query += ") and cf.data_emissao between '" + fechaIni + "' and '" + fechaFin + "'";
         sql_query += " group by cu.co_usuario, cu.no_usuario, MONTH(cf.data_emissao), YEAR(cf.data_emissao)";
