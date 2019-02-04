@@ -28,11 +28,9 @@ exports.Usuario={
             }
             sql_query += "cu.co_usuario='" + el.co_usuario + "' ";
         });
-        var fechaIni=new Date(req.body.fechaIni);
-        fechaIni.setHours(23);
-        var fechaIni = moment(fechaIni, "YYYY-MM-DD").startOf('month').format();
+        var fechaIni = moment(req.body.fechaIni, "YYYY-MM-DD").utcOffset("+08:00").startOf('month').format();
         
-        var fechaFin = moment(req.body.fechaFin, "YYYY-MM-DD").endOf('month').format();
+        var fechaFin = moment(req.body.fechaFin, "YYYY-MM-DD").utcOffset("+08:00").endOf('month').format();
         sql_query += ") and cf.data_emissao between '" + fechaIni + "' and '" + fechaFin + "'";
         sql_query += " group by cu.co_usuario, cu.no_usuario, MONTH(cf.data_emissao), YEAR(cf.data_emissao)";
         sql_query += " order by cu.co_usuario, YEAR(cf.data_emissao), MONTH(cf.data_emissao)";
